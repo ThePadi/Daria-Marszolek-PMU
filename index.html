@@ -934,6 +934,7 @@ let start=(location.hash||'').slice(1);
 if(!order.includes(start)) start='start';
 if(start!=='start'){ $('#p-start').hidden=true; $('#p-'+start).hidden=false; $$('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.go===start)); cur=start; onShow(start);}
 placeInk();
+addEventListener('hashchange',()=>{const h=(location.hash||'').slice(1); if(order.includes(h)&&h!==cur) go(h,null,false);});
 })();
 </script>
 
